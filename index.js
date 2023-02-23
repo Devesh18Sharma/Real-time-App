@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://frontend-real-time-app.vercel.app",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
@@ -31,7 +31,9 @@ io.on("connection", (socket) => {
     console.log("User Disconnected", socket.id);
   });
 });
-
+app.get("/ping",(req,res)=>{
+  res.send("working")
+})
 server.listen(3001, () => {
   console.log("SERVER RUNNING");
 });
