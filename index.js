@@ -34,6 +34,6 @@ io.on("connection", (socket) => {
 app.get("/ping",(req,res)=>{
   res.send("working")
 })
-server.listen(3001, () => {
+server.listen(process.env.PORT, () => {
   console.log("SERVER RUNNING");
 });
